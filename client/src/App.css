@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  height: 100%;
+  color: white; 
+}
+
+.pro-sidebar {
+  height: 100vh!important;
+}
+
+
+
+
+
