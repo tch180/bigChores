@@ -2,9 +2,10 @@ import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
-//STATE
+//STATE & PROVIDERS 
 import AuthState from "./context/Auth/AuthState";
-import ChildrenState from "./context/children/ChildrenState";
+import ChildrenProvider from "./context/children/childrenContext";
+import ChoreProvider from "./context/chores/choreContext";
 
 //Components
 import LandingPage from "./layout/LandingPage";
@@ -16,9 +17,8 @@ import DisplayChildren from "./components/children/Children";
 import setAuthToken from "./utils/SetAuthToken";
 //Private Routes
 import PrivateRoute from "./components/routing/PrivateRoute";
-import ChoresState from "./context/chores/ChoreState";
 import DisplayChores from "./components/chores/Chores";
-import ChildrenProvider from "./context/children/childrenContext";
+
 
 function App() {
   useEffect(()=>{
@@ -31,7 +31,7 @@ function App() {
   return (
     <AuthState>
       <ChildrenProvider>
-        <ChoresState>
+        <ChoreProvider>
           <Router>
             <Fragment>
               <NavBar />
@@ -46,7 +46,7 @@ function App() {
               </div>
             </Fragment>
           </Router>
-        </ChoresState>
+        </ChoreProvider>
       </ChildrenProvider>
     </AuthState>
   );

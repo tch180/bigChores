@@ -22,7 +22,7 @@ const Children = () => {
 
   return (
     <div>
-      <h1>Crotch Goblins</h1>
+      <h1>My Kids </h1>
       <div>
         {kids.map((kid, index) => (
           <div key={index}>

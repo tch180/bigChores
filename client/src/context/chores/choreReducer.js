@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { useReducer } from "react";
 import {
   GET_CHORES,
   ADD_CHORES,
@@ -9,7 +10,7 @@ import {
 
 } from "../types";
 
-export default (state, action) => {
+const choreReducer = (state, action) => {
   switch (action.type) {
     case GET_CHORES:
       return {
@@ -46,3 +47,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export const useChoreReducer = (initialState)=> useReducer(choreReducer,initialState)
