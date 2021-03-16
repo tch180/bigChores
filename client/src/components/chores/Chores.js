@@ -9,11 +9,7 @@ import ChoresItem from "./ChoresItem";
 import { useParams } from "react-router";
 
 const Chores = () => {
-    //const choreContext = useContext(ChoresContext);
-    //const childContext = useContext(ChildrenContext)
-  //const {getChildAndChores} = choreContext
-    // const { } = childContext
-   // const {getChores, chores, getChildAndChores} = choreContext
+
     const authContext = useContext(AuthContext);
     const [chores, setChores] = useState([])
     const params = useParams()
@@ -21,7 +17,6 @@ const Chores = () => {
 
     useEffect(()=> {
         authContext.loadUser();
-        //getChildAndChores();
         //getChores();
       //  console.log("get chores")
             //eslint-disable-next-line

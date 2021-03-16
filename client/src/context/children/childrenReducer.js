@@ -1,4 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
+import { useReducer } from 'react';
 import {
     GET_CHILDREN,
     ADD_CHILDREN,
@@ -12,7 +12,7 @@ import {
     // GET_CHILDREN_AND_CHORES
 } from '../types.js';
 
-export default (state,action) => {
+const childrenReducer = (state,action) => {
     switch (action.type){
         case GET_CHILDREN:
             return {
@@ -77,3 +77,4 @@ export default (state,action) => {
 
     }
 }
+export const useChildrenReducer = (initialState)=> useReducer(childrenReducer, initialState)

@@ -1,5 +1,5 @@
-import React, { useReducer } from "react";
 import axios from "axios";
+
 import {
   GET_CHILDREN,
   ADD_CHILDREN,
@@ -11,11 +11,10 @@ import {
   CLEAR_CHILDREN_FILTER,
   CHILDREN_ERROR,
 } from "../types.js";
-import childrenReducer from "./childrenReducer.js";
-import ChildrenContext from "./childrenContext";  // state should be pure 
+import { useChildrenReducer } from "./childrenReducer.js";
 
-const ChildrenState = (props) => {
-  const initialState = {
+
+  export const initialState = {
     kids: [],
     currentChild: null,
     error: null,
@@ -23,9 +22,9 @@ const ChildrenState = (props) => {
     chores: [],
   };
 
-  const [state, dispatch] = useReducer(childrenReducer, initialState);
+  
   // ADD CHILDREN
-  const addChild = async (children) => {
+  export const addChild = async (children, dispatch) => {
     const config = {
       headers: {
         "content-type": "application/json",
@@ -39,7 +38,7 @@ const ChildrenState = (props) => {
     }
   };
   // GET CHILDREN
-  const getChild = async () => {
+  export const getChild = async (dispatch) => {
     try {
       const res = await axios.get("/api/child");
       dispatch({ type: GET_CHILDREN, payload: res.data });
@@ -50,7 +49,7 @@ const ChildrenState = (props) => {
   };
 
   // UPDATE CHILDREN
-  const updateChildren = async (children) => {
+  export const updateChildren = async (children,dispatch) => {
     const config = {
       headers: {
         "content-type": "application/json",
@@ -68,23 +67,23 @@ const ChildrenState = (props) => {
     }
   };
   // SET CURRENT CHILD
-  const setCurrentChild = (kids) => {
+  export const setCurrentChild = (kids,dispatch) => {
     dispatch({ type: SET_CURRENT_CHILD, payload: kids._id });
   };
   //CLEAR CURRENT CHILD
-  const clearCurrentChild = (kids) => {
+  export const clearCurrentChild = (kids,dispatch) => {
     dispatch({ type: CLEAR_CURRENT_CHILDREN });
   };
   // FILTER CHILDREN
-  const filterChildern = (text) => {
+  export const filterChildern = (text,dispatch) => {
     dispatch({ type: FILTER_CHILDREN, payload: text });
   };
   //CLEAR FILTER CHILDREN
-  const clearTheChildrenFilter = () => {
+  export const clearTheChildrenFilter = (dispatch) => {
     dispatch({ type: CLEAR_CHILDREN_FILTER });
   };
   // DELETE CHILD
-  const deleteChildren = async (id) => {
+  export const deleteChildren = async (id,dispatch) => {
     try {
       await axios.delete(`/api/child/${id}`);
       dispatch({ type: DELETE_CHILDREN, payload: id });
@@ -92,27 +91,7 @@ const ChildrenState = (props) => {
       dispatch({ type: CHILDREN_ERROR, payload: err.response.msg });
     }
   };
-  return (
-    <ChildrenContext.Provider
-      value={{
-        kids: state.kids,
-        currentChild: state.currentChild,
-        childrenFiltered: state.childrenFiltered,
-        error: state.error,
+ 
 
-        addChild,
-        getChild,
-        updateChildren,
-        setCurrentChild,
-        clearCurrentChild,
-        filterChildern,
-        clearTheChildrenFilter,
-        deleteChildren,
-        
-      }}
-    >
-      {props.children}
-    </ChildrenContext.Provider>
-  );
-};
-export default ChildrenState;
+
+

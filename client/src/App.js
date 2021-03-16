@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -18,15 +18,19 @@ import setAuthToken from "./utils/SetAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import ChoresState from "./context/chores/ChoreState";
 import DisplayChores from "./components/chores/Chores";
+import ChildrenProvider from "./context/children/childrenContext";
 
 function App() {
-  if (localStorage.token) {
-    setAuthToken(localStorage.token);
-  }
+  useEffect(()=>{
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+  },[])
+  
 
   return (
     <AuthState>
-      <ChildrenState>
+      <ChildrenProvider>
         <ChoresState>
           <Router>
             <Fragment>
@@ -43,7 +47,7 @@ function App() {
             </Fragment>
           </Router>
         </ChoresState>
-      </ChildrenState>
+      </ChildrenProvider>
     </AuthState>
   );
 }

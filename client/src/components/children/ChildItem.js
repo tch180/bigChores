@@ -6,15 +6,13 @@ import ChildrenContext from "../../context/children/childrenContext";
  import ChoresContext from '../../context/chores/choreContext';
 
 
-const ChildItem = ({ children }) => {
-  const childrenContext = useContext(ChildrenContext);
-  const { deleteChildren, setCurrentChild } = childrenContext;
+const ChildItem = ({ kid }) => {
   
-  const { name, age, _id } = children;
+  
+  const { name, age, _id } = kid;
   
 
-   const link = "/kids/chores/"+ _id
-  console.log("Link Console",link)
+
   return (
     <div
       style={{
@@ -50,7 +48,7 @@ const ChildItem = ({ children }) => {
           </button>
           <ul className="dropdown-menu">
             <li> 
-              <Link to={`/kids/chores/${_id}`} className="dropdown-item"   > {/**  onClick={() => getChildAndChores(_id, console.log("the child id is ",_id))}*/}
+              <Link to={`/kids/chores/${_id}`} className="dropdown-item"   > 
               <span > View Chores</span>  
               </Link>
             </li>

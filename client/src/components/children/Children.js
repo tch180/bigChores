@@ -1,18 +1,19 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, Fragment, useContext } from "react";
-import ChildrenContext from "../../context/children/childrenContext";
+import ChildrenContext, { useChildrenDispatch, useChildrenState } from "../../context/children/childrenContext";
 import ChildItem from "./ChildItem";
 import AuthContext from "../../context/Auth/authContext";
+import { getChild } from "../../context/children/ChildrenState";
 
 const Children = () => {
-  const childrenContext = useContext(ChildrenContext);
-  const { getChild, kids } = childrenContext;
+  const {kids} = useChildrenState()
+  const dispatch = useChildrenDispatch();
   
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
     authContext.loadUser();
-    getChild();
+    getChild(dispatch);
     console.log("about to display the kids ");
     //console.log(ChildItem)
 
@@ -23,9 +24,9 @@ const Children = () => {
     <div>
       <h1>Crotch Goblins</h1>
       <div>
-        {kids.map((children, index) => (
+        {kids.map((kid, index) => (
           <div key={index}>
-            <ChildItem children={children} />
+            <ChildItem kid={kid} />
           </div>
         ))}
       </div>
