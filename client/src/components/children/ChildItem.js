@@ -9,8 +9,7 @@ import ChildrenContext from "../../context/children/childrenContext";
 const ChildItem = ({ children }) => {
   const childrenContext = useContext(ChildrenContext);
   const { deleteChildren, setCurrentChild } = childrenContext;
-  const choreContext = useContext(ChoresContext)
-  const {getChildAndChores} = choreContext
+  
   const { name, age, _id } = children;
   
 
@@ -51,7 +50,7 @@ const ChildItem = ({ children }) => {
           </button>
           <ul className="dropdown-menu">
             <li> 
-              <Link to={link} className="dropdown-item"   onClick={() => getChildAndChores(_id, console.log("the child id is ",_id))} >
+              <Link to={`/kids/chores/${_id}`} className="dropdown-item"   > {/**  onClick={() => getChildAndChores(_id, console.log("the child id is ",_id))}*/}
               <span > View Chores</span>  
               </Link>
             </li>

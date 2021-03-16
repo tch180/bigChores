@@ -12,7 +12,7 @@ import {
   CHILDREN_ERROR,
 } from "../types.js";
 import childrenReducer from "./childrenReducer.js";
-import ChildrenContext from "./childrenContext";
+import ChildrenContext from "./childrenContext";  // state should be pure 
 
 const ChildrenState = (props) => {
   const initialState = {

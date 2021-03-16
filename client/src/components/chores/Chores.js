@@ -1,25 +1,44 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, Fragment, useContext } from "react";
+import React, { useEffect, Fragment, useContext, useState, useCallback } from "react";
+import axios from 'axios'
 import ChoresContext from '../../context/chores/choreContext';
 import ChildrenContext from "../../context/children/childrenContext";
 
 import AuthContext from '../../context/Auth/authContext'
 import ChoresItem from "./ChoresItem";
+import { useParams } from "react-router";
 
 const Chores = () => {
-    const choreContext = useContext(ChoresContext);
-    const childContext = useContext(ChildrenContext)
+    //const choreContext = useContext(ChoresContext);
+    //const childContext = useContext(ChildrenContext)
+  //const {getChildAndChores} = choreContext
     // const { } = childContext
-    const {getChores, chores, getChildAndChores} = choreContext
+   // const {getChores, chores, getChildAndChores} = choreContext
     const authContext = useContext(AuthContext);
+    const [chores, setChores] = useState([])
+    const params = useParams()
+
 
     useEffect(()=> {
         authContext.loadUser();
-        getChildAndChores();
+        //getChildAndChores();
         //getChores();
-        console.log("get chores")
+      //  console.log("get chores")
             //eslint-disable-next-line
-    },[])
+    },[params,authContext])
+
+     const getNewChores = useCallback(async()=>{
+        const {data} =  await axios.get(`/api/chore/${params.id}`)
+        setChores(data)
+     },[params.id])
+
+    useEffect(()=>{
+        if (params.id) {
+            getNewChores()
+        }
+        
+    },[params,getNewChores])
+    
     
     return (
         <div>
