@@ -3,12 +3,12 @@ import { useAlertDispatch, useAlertState } from '../context/alert/alertContext';
 import { setAlert } from '../context/alert/AlertState';
 
  const Alerts = () => {
-  const alerts = useAlertState()
+  const {alerts} = useAlertState()
   const dispatch = useAlertDispatch()
 
   useEffect(() => {
-    setAlert(dispatch)
-    //console.log(setAlert())
+    setAlert(undefined, undefined, undefined, dispatch)   
+     //console.log(setAlert())
     
    //eslint-disable-next-line
   }, [])
