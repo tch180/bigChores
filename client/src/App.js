@@ -18,6 +18,8 @@ import setAuthToken from "./utils/SetAuthToken";
 //Private Routes
 import PrivateRoute from "./components/routing/PrivateRoute";
 import DisplayChores from "./components/chores/Chores";
+import AlertProvider from "./context/alert/alertContext";
+import Alerts from "./layout/Alerts";
 
 
 function App() {
@@ -32,10 +34,12 @@ function App() {
     <AuthState>
       <ChildrenProvider>
         <ChoreProvider>
+          <AlertProvider>
           <Router>
             <Fragment>
               <NavBar />
               <div className="App">
+                <Alerts/>
                 <Switch>
                   <Route exact path="/" component={LandingPage} />
                   <Route exact path="/login" component={Login} />
@@ -46,6 +50,7 @@ function App() {
               </div>
             </Fragment>
           </Router>
+          </AlertProvider>
         </ChoreProvider>
       </ChildrenProvider>
     </AuthState>

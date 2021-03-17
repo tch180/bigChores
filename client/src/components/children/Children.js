@@ -15,7 +15,6 @@ const Children = () => {
     authContext.loadUser();
     getChild(dispatch);
     console.log("about to display the kids ");
-    //console.log(ChildItem)
 
     //eslint-disable-next-line
   }, []);
