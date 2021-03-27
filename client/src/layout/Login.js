@@ -38,11 +38,11 @@ const [user, setUser] = useState({
   };
   return (
     <Fragment>
-      <div className="card bg-dark" style={{ margin: "auto" }} onSubmit={onSubmit} >
+      <div className="card bg-dark mt-2 " style={{ margin: "auto" }} onSubmit={onSubmit} >
         <form style={{ width: "22rem", margin: "auto" }}>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
+          <div className="mb-3 " >
+          
+            <label htmlFor="emailInput" className="form-label">
             </label>
             <input
             className='form-control'
@@ -50,8 +50,9 @@ const [user, setUser] = useState({
             name='email'
             value={email}
             onChange={onChange}
+            placeholder="name@whatever.com"
             required
-              id="exampleInputEmail1"
+              id="emailInput"
               aria-describedby="emailHelp"
             />
             <div id="emailHelp" className="form-text">
@@ -60,7 +61,7 @@ const [user, setUser] = useState({
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label">
-              Password
+              
             </label>
             <input
               className='form-control'
@@ -68,6 +69,7 @@ const [user, setUser] = useState({
               name='password'
               value={password}
               onChange={onChange}
+              placeholder='password'
               required
               id="exampleInputPassword1"
             />

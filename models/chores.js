@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ChoreSchema = mongoose.Schema({
    
-    name: {
+    choreName: {
         type: String,
         required: true,
     },

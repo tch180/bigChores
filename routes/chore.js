@@ -29,11 +29,11 @@ router.get('/:id', auth, async(req,res)=>{
 // access private
 
 router.post('/:id', auth, async(req,res)=>{
-    const {name,value,completed} = req.body
+    const {choreName,value,completed} = req.body
     try {
         console.info("----Starting to post new chore to child---. ")
         const newChore = new Chore ({
-            name,
+            choreName,
             value,
             completed,
             child: req.params.id, //// req.user.id.child -- Allows adding to db, but not locked to user/child, if adding child.id: id returns undefined

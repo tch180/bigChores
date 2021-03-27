@@ -20,9 +20,9 @@ const Children = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Crotch Goblins</h1>
-      <div>
+    <div className='childrenParent'>
+      <h1>My Kids</h1>
+      <div className="childrenWrapper" >
         {kids.map((children, index) => (
           <div key={index}>
             <ChildItem children={children} />

@@ -1,17 +1,82 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
 
 .App {
   text-align: center;
-  background-color: #282c34;
-  height: 100%;
-  color: white; 
 }
 
-.pro-sidebar {
-  height: 100vh!important;
+.card.mt-5 {
+  background: white;
+  min-height: 40vh;
+  width: 60%;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 2rem;
+  z-index: 2;
+  /* backdrop-filter: blur(2rem); */
+  display: flex;
 }
 
+.card.mt-2 {
+  background: white;
+  min-height: 40vh;
+  width: 60%;
+  background: linear-gradient(
+    129deg,
+    rgba(57, 70, 179, 1) 0%,
+    rgba(19, 121, 205, 0.6250875350140056) 47%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 2rem;
+  /* backdrop-filter: blur(2rem); */
+}
 
+.landingWrapper {
+  height: 100vh;
+  background: linear-gradient(
+    129deg,
+    rgba(57, 70, 179, 1) 0%,
+    rgba(19, 121, 205, 0.6250875350140056) 47%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  font-family: Work Sans, sans-serif;
+}
 
+.childrenParent {
+  background: linear-gradient(
+    29deg,
+    rgba(57, 70, 179, 1) 0%,
+    rgba(19, 121, 205, 0.6250875350140056) 47%,
+    rgba(0, 212, 255, 1) 100%
+  );  font-family: Work Sans, sans-serif;
+}
+.childrenParent h1{
+  color:white;
+  background-color: #f3ec78;
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+}
+.textWrapper span {
+  background-color: #f3ec78;
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
 
+.btn a {
+  color: white;
+  text-decoration: none;
+}
 
+.card-body {
+  border-radius: 1rem;
+  margin: 2rem 0rem;
+  padding: 2rem;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+  justify-content: space-between;
+}

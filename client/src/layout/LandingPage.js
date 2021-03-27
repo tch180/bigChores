@@ -3,7 +3,7 @@ import LandingCarousel from '../components/LandingCarousel'
 
 function LandingPage() {
     return (
-        <div>
+        <div className="landingWrapper">
             <LandingCarousel/>
         </div>
     )

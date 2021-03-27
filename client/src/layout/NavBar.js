@@ -16,12 +16,12 @@ function NavBar(props) {
   return (
     <Fragment>
       <nav
-        className="navbar navbar-expand-lg navbar-dark"
+        className="navbar navbar-expand-lg navbar-dark sticky-top"
         style={{ backgroundColor: "black" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            BigStarChores
+          <a className="navbar-brand" href="/">
+            BSC
           </a>
           <button
             className="navbar-toggler"

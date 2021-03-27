@@ -45,14 +45,14 @@ const getChores = async (id) => {
     }
   }
 //ADD CHORES
-const addChores = async(chores)=>{
+const addChores = async(chores,id)=>{
     const config ={
         headers: {
             'content-type': 'application/json'
         },
     }
     try {
-        const res = await axios.post('/api/chore',chores,config)
+        const res = await axios.post(`/api/chore/${id}`,chores,config)
         dispatch({type:ADD_CHORES, payload: res.data })
     } catch (error) {
         dispatch({type: CHORES_ERROR, payload: error.response.msg})
